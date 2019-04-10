@@ -17,4 +17,7 @@
 <%= link_to "Click here to return to the song list.", songs_path %>
 <br>
 <br>
+<%= form_for(@song, :html => { :method => :delete }) do |f| %>
+<%= f.submit :value => "Delete" %>
+<% end %>
 

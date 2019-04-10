@@ -1,0 +1,30 @@
+<br>
+<h1 align="center"><b><u>Song List</u></b></h1>
+<br>
+<br>
+<table border="1" style="width:100%">
+    <tr>
+        <th align="center">&emsp;&emsp;<u>Title</u>:&emsp;&emsp;</th>
+        <th align="center">&emsp;&emsp;<u>Artist(s)</u>:&emsp;&emsp;</th>
+        <th align="center">&emsp;&emsp;<u>Genre(s)</u>:&emsp;&emsp;</th>
+        <th align="center"><u>Released</u>?</th>
+        <th align="center"><u>Release Year</u>:</th>
+    </tr>
+    <% @songs.each do |song| %>
+    <tr>
+        <td align="center"><%= link_to song.title, song_path(song) %></td>
+        <td align="center"><%= song.artist_name %></td>
+        <td align="center"><%= song.genre %></td>
+        <% if song.released %>
+            <td align="center">Yes</td>
+            <td align="center"><%= song.release_year %></td>
+        <% else %>
+            <td align="center">No</td>
+            <td align="center">----</td>
+        <% end %>
+    </tr>
+    <% end %>
+</table>
+<br>
+<br>
+<p align="center"><%= link_to 'Click here to add a new song to the list!', new_song_path %></p>
